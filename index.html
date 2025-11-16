@@ -7,19 +7,22 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#667eea">
     <title>Game: Choices - Simulador Financeiro</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Game: Choices</h1>
-            <p class="subtitle">Teste suas habilidades financeiras</p>
+        <header class="site-header">
+            <img id="logo" src="gamechoiceslogo.png" alt="Game: Choices Logo" />
+            <div class="title-text">
+                <h1>Game: Choices</h1>
+                <p class="subtitle">Teste suas habilidades financeiras</p>
+            </div>
         </header>
 
         <!-- Modal de Resumo Inicial -->
         <div class="modal-intro" id="modalIntro">
             <div class="modal-content-intro">
-                <h2>Bem-vindo ao Game: Choices!</h2>
                 <div class="intro-text">
                     <h3>Sobre o Jogo</h3>
                     <p>Game: Choices é um simulador financeiro desenvolvido com o propósito de ajudar você a compreender melhor seus gastos do dia a dia e tomar decisões financeiras mais inteligentes.</p>
@@ -47,13 +50,13 @@
 
         <div class="game-info" id="gameInfo" style="display: none;">
             <div class="info-box">
-                <h1>Dia: <span id="day">1</span><h2>/7</h2></h1>
+                <h2>Dia: <span id="day">1</span>/7</h2>
             </div>
             <div class="info-box">
-                <h2>Saldo:<span>R$</span><span id="balance">1600.00</span></h2>
+                <h2>Saldo: R$ <span id="balance">1600.00</span></h2>
             </div>
             <div class="info-box">
-               <h2>Meta:<span>R$</span><span>300.00</span></h2>
+               <h2>Meta: R$ <span>300.00</span></h2>
             </div>
         </div>
 

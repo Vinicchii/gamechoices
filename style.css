@@ -37,18 +37,42 @@ header {
     margin-bottom: 30px;
 }
 
+/* Header layout com logo */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.site-header .title-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 header h1 {
-    font-size: 2.5em;
+    font-size: 2.2rem;
     color: #667eea;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
 }
 
 header .subtitle {
     color: #666;
-    font-size: 1.1em;
+    font-size: 1.05rem;
     word-wrap: break-word;
+}
+
+/* Logo responsivo */
+#logo {
+    display: block;
+    width: 140px;
+    max-width: 30%;
+    height: auto;
+    object-fit: contain;
 }
 
 /* Modal Intro */
@@ -423,7 +447,7 @@ footer p {
     }
 
     header h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
         margin-bottom: 8px;
     }
 
@@ -455,6 +479,17 @@ footer p {
         padding: 15px;
         margin-bottom: 15px;
         border-left-width: 4px;
+    }
+
+    /* Ajuste do header no mobile - logo acima do título */
+    .site-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #logo {
+        width: 120px;
+        max-width: 45%;
     }
 
     .scenario-title {
