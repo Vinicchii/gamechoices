@@ -22,7 +22,7 @@ Game: Choices é um simulador financeiro educativo criado para ajudar pessoas a 
 
 **Como jogar**
 
-1. Clique [aqui](https://www.Vinicchii.github.io/gamechoices/) para abrir o jogo.
+1. Clique [aqui](https://vinicchii.github.io/gamechoices/) para abrir o jogo.
 2. Leia o resumo inicial e clique em "Começar o Jogo".
 3. Tome suas decisões a cada dia (confirmar/recusar gastos) até o final dos 7 dias.
 
