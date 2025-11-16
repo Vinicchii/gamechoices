@@ -1,0 +1,683 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+    margin-bottom: 30px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #667eea;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+}
+
+header .subtitle {
+    color: #666;
+    font-size: 1.1em;
+    word-wrap: break-word;
+}
+
+/* Modal Intro */
+.modal-intro {
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content-intro {
+    text-align: left;
+}
+
+.modal-content-intro h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #667eea;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+}
+
+.intro-text {
+    margin-bottom: 30px;
+    line-height: 1.8;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.intro-text h3 {
+    color: #667eea;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.intro-text p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.intro-text ul {
+    list-style-position: inside;
+    color: #555;
+    margin-left: 20px;
+}
+
+.intro-text li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.ods-note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #856404;
+}
+
+.btn-start {
+    width: 100%;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-start:active {
+    transform: translateY(0);
+}
+
+.game-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.info-box h2 {
+    font-size: 1.3em;
+    font-weight: 600;
+    word-wrap: break-word;
+}
+
+.info-box span {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
+
+.scenario-container {
+    margin-bottom: 30px;
+}
+
+.scenario {
+    background: #f8f9fa;
+    border-left: 5px solid #667eea;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    animation: slideIn 0.3s ease-in;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.scenario.mandatory {
+    border-left-color: #e74c3c;
+    background: #ffe6e6;
+}
+
+.scenario.choice {
+    border-left-color: #27ae60;
+    background: #e6ffe6;
+}
+
+.scenario-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.scenario-description {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 1em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.scenario-type {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.scenario.mandatory .scenario-type {
+    background: #e74c3c;
+    color: white;
+}
+
+.scenario.choice .scenario-type {
+    background: #27ae60;
+    color: white;
+}
+
+.scenario-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 120px;
+    touch-action: manipulation;
+    min-height: 44px;
+}
+
+.btn-accept {
+    background: #667eea;
+    color: white;
+}
+
+.btn-accept:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-decline {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-decline:hover {
+    background: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+.btn-mandatory {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-mandatory:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.game-over-content {
+    background: white;
+    padding: 50px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    animation: popUp 0.4s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.game-over-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #667eea;
+}
+
+.game-over-content p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+#gameOverBalance {
+    font-weight: bold;
+    color: #27ae60;
+    font-size: 1.3em !important;
+    margin-bottom: 30px !important;
+}
+
+.btn-restart {
+    background: #667eea;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+
+.btn-restart:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.github-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.github-link svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+
+    header {
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+    }
+
+    header .subtitle {
+        font-size: 0.95em;
+    }
+
+    .game-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .info-box {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .info-box h2 {
+        font-size: 0.95em;
+    }
+
+    .info-box span {
+        font-size: 1.2em;
+        margin-top: 3px;
+    }
+
+    .scenario {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-left-width: 4px;
+    }
+
+    .scenario-title {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+
+    .scenario-description {
+        font-size: 0.95em;
+        margin-bottom: 12px;
+    }
+
+    .scenario-type {
+        font-size: 0.75em;
+        padding: 4px 8px;
+        margin-bottom: 8px;
+    }
+
+    .scenario-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn {
+        min-width: auto;
+        padding: 12px 15px;
+        font-size: 0.95em;
+        min-height: 44px;
+        width: 100%;
+    }
+
+    .btn-accept:hover,
+    .btn-decline:hover,
+    .btn-mandatory:hover {
+        transform: none;
+    }
+
+    .game-over-content {
+        padding: 25px;
+        margin: 20px;
+        max-width: calc(100vw - 40px);
+    }
+
+    .game-over-content h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .game-over-content p {
+        font-size: 1em;
+        margin-bottom: 12px;
+    }
+
+    #gameOverBalance {
+        font-size: 1.1em !important;
+        margin-bottom: 20px !important;
+    }
+
+    .btn-restart {
+        padding: 12px 20px;
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .intro-text {
+        max-height: 45vh;
+        margin-bottom: 20px;
+    }
+
+    .intro-text h3 {
+        font-size: 1.1em;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
+    .intro-text p {
+        font-size: 0.95em;
+        margin-bottom: 12px;
+    }
+
+    .intro-text ul {
+        margin-left: 15px;
+    }
+
+    .intro-text li {
+        margin-bottom: 8px;
+        font-size: 0.95em;
+    }
+
+    .ods-note {
+        padding: 12px;
+        margin-top: 15px;
+        font-size: 0.9em;
+    }
+
+    .btn-start {
+        padding: 12px 20px;
+        font-size: 1em;
+        margin-top: 15px;
+        min-height: 44px;
+    }
+
+    .modal-content-intro h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+
+    footer p {
+        margin-bottom: 8px;
+        font-size: 0.9em;
+    }
+
+    .github-link {
+        font-size: 0.9em;
+        padding: 8px 12px;
+        gap: 6px;
+    }
+
+    .github-link svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 1.6em;
+        margin-bottom: 5px;
+    }
+
+    header .subtitle {
+        font-size: 0.9em;
+    }
+
+    .game-info {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .info-box {
+        padding: 12px;
+    }
+
+    .info-box h2 {
+        font-size: 0.85em;
+    }
+
+    .info-box span {
+        font-size: 1.1em;
+        margin-top: 2px;
+    }
+
+    .scenario {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    .scenario-title {
+        font-size: 1em;
+        margin-bottom: 6px;
+    }
+
+    .scenario-description {
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    .scenario-buttons {
+        gap: 6px;
+    }
+
+    .btn {
+        padding: 10px 12px;
+        font-size: 0.9em;
+        min-height: 40px;
+    }
+
+    .intro-text {
+        max-height: 40vh;
+    }
+
+    .intro-text h3 {
+        font-size: 1em;
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    .intro-text p,
+    .intro-text li {
+        font-size: 0.9em;
+    }
+
+    .modal-content-intro h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .game-over-content {
+        padding: 20px;
+        margin: 15px;
+    }
+
+    .game-over-content h2 {
+        font-size: 1.3em;
+        margin-bottom: 12px;
+    }
+
+    .btn-start,
+    .btn-restart {
+        font-size: 0.95em;
+        min-height: 40px;
+    }
+}
